@@ -5,7 +5,22 @@ services:
     build: .
     image: boiler
     ports:
-        - "3000:3000"
+      - "3000:3000"
+      - "5555:5555"
     volumes:
-        - ./:/usr/src/app
-        - /usr/src/app/node_modules
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://user:password@postgres:5433/mydatabase #  postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA
+
+  postgres:
+    build: ./postgres
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase

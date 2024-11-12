@@ -15,6 +15,16 @@
 		"vite": "^5.0.3"
 	},
 	"dependencies": {
-		"@sveltejs/adapter-node": "^5.2.9"
-	}
+		"@prisma/client": "^5.21.1",
+		"@sveltejs/adapter-node": "^5.2.9",
+		"pg": "^8.13.1",
+		"postgres": "^3.4.5",
+		"postgresql-client": "^2.13.0",
+		"prisma": "^5.21.1"
+	},
+	"description": "This repository contains a very simple SvelteKit boilerplate.  It contains the basic structure of a SvelteKit project with a few additional features : Good file structure and config, style file, layout with header and footer, nav bar, transition between pages, empty canvas as bg.",
+	"main": "svelte.config.js",
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }
