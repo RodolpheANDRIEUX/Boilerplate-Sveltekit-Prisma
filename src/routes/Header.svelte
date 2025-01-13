@@ -5,6 +5,7 @@
 	let tabs = [
 		{ name: 'Home', url: '/' },
 		{ name: 'About', url: '/about' },
+		{ name: 'Login', url: '/login' }
 	];
 
 </script>
