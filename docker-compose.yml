@@ -6,21 +6,21 @@ services:
     image: boiler
     ports:
       - "3000:3000"
-      - "5555:5555"
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://user:password@postgres:5433/mydatabase #  postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA
-      JWT_ACCESS_SECRET: secret
+      - ORIGIN=${ORIGIN}
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_ACCESS_SECRET=${JWT_ACCESS_SECRET}
 
   postgres:
     build: ./postgres
     image: postgres
     ports:
-      - "5433:5432"
+      - "5432:5432"
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password

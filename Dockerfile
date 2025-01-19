@@ -20,4 +20,5 @@ COPY --from=build /app/prisma ./prisma
 COPY --from=build /app/start.sh ./start.sh
 RUN chmod +x ./start.sh
 
+EXPOSE 3000
 ENTRYPOINT ["node", "build"]

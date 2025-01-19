@@ -21,6 +21,7 @@ export async function createUser(email, username, password) {
             },
         });
 
+        console.log("in try");
         if (existingUser) {
             if (existingUser.email === email) {
                 return { error: 'mail already used' };
@@ -33,9 +34,11 @@ export async function createUser(email, username, password) {
             data: { email, username, password: hashedPassword },
         });
 
+        console.log("new user", newUser);
         const token = createJWT(newUser);
         return { token };
     } catch (error) {
+        console.log("error", error);
         return error;
     }
 }
